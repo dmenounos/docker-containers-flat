@@ -15,11 +15,13 @@ RUN apt update \
 COPY ./cont/tmp /tmp
 COPY ./cont/entrypoint.sh /
 
-RUN cd /tmp/java && ./install-java.sh
+RUN cd /tmp/java && ./install-java.sh -y
 
-RUN cd /tmp/java && ./install-ant.sh
+RUN cd /tmp/java && ./install-ant.sh -y
 
-RUN cd /tmp/java && ./install-maven.sh
+RUN cd /tmp/java && ./install-maven.sh -y
+
+RUN cd /tmp/node && ./install-node.sh -y
 
 # What to run on container initiallization
 
